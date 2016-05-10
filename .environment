@@ -1,0 +1,7 @@
+APACHE_RUN_USER=www-data
+APACHE_RUN_GROUP=www-data
+APACHE_LOG_DIR=/var/log/apache2
+PG_REPL_USER=docker
+PG_REPL_PASS=docker
+PCP_USER=docker
+PCP_PASS=docker

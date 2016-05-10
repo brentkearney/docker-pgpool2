@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  pgpool:
+    build: .
+    ports:
+      - '8000:80'
+      - '9999:9999'
+    networks:
+      - pgpool
+    volumes:
+      - ./config/etc:/usr/local/etc
+      - ./config/www:/var/www/conf
+    env_file:
+      - '.environment'
+
+networks:
+  pgpool:

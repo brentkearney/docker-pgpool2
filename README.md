@@ -1,5 +1,15 @@
 # docker-pgpool2
 
+Work in progess. Uses Postgresql image since we already have it, and the latest versions of pgpool-ii & pgpoolAdmin.
+
+Usage: 
+* Edit .environment to set usernames & passwords
+* docker-compose up
+* Edit config files under ./conf, and restart
+
+
+-- 
+
 This Dockerfile will install pgpool2 and pgpooladmin.
 
 Default users/passwords are docker/docker.
