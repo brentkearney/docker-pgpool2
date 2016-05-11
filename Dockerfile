@@ -21,6 +21,5 @@ RUN mkdir /var/log/pgpool
 
 EXPOSE 80
 EXPOSE 9999
-RUN echo "HI MOM"
 ADD entrypoint.sh /sbin/entrypoint.sh
 ENTRYPOINT ["/sbin/entrypoint.sh"]

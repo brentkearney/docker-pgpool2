@@ -12,8 +12,6 @@ services:
       - ./logs:/var/log/pgpool
       - ./config/pgmgt.conf.php:/var/www/html/admin-tool/conf/pgmgt.conf.php
       - ./config/etc:/usr/local/etc
-#      - ./config/pool_hba.conf:/usr/local/etc/pool_hba.conf
-#      - ./config/pgpool.conf:/usr/local/etc/pgpool.conf
     env_file:
       - '.environment'
 
