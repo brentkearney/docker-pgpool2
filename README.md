@@ -4,8 +4,8 @@ Work in progess. Uses Postgresql image since we already have it, and the latest 
 
 Usage: 
 * Edit .environment to set usernames & passwords
+* Edit pool_hba.conf to configure pgpool-ii
 * docker-compose up
-* Edit config files under ./conf, and restart
 
 
 -- 

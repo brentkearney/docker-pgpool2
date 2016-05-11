@@ -15,15 +15,13 @@ RUN curl -L -o pgpoolAdmin-3.5.2.tar.gz http://www.pgpool.net/download.php?f=pgp
 RUN tar xzf pgpoolAdmin-3.5.2.tar.gz
 RUN rm -rf /var/www/html
 RUN mv pgpoolAdmin-3.5.2 /var/www/html
-
 ADD .environment env_file
 
+RUN mkdir /var/log/pgpool2
 WORKDIR /var/www
 ADD ./pgmgt.conf.php /var/www/conf/
 ADD ./pool_hba.conf /usr/local/etc/
-ADD setup.sh /var/www/
-RUN sh ./setup.sh
 EXPOSE 80
 EXPOSE 9999
-COPY httpd-foreground /usr/local/bin
-CMD ["/usr/local/bin/httpd-foreground"]
+ADD entrypoint.sh /sbin/entrypoint.sh
+ENTRYPOINT ["/sbin/entrypoint.sh"]

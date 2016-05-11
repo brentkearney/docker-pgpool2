@@ -25,3 +25,6 @@ rm -rf /var/www/install
 cd /usr/local/etc
 pg_md5 -m -u ${PG_REPL_USER} ${PG_REPL_PASS}
 chown www-data pool_passwd
+
+source /etc/apache2/envvars
+exec /usr/sbin/apache2 -DFOREGROUND
