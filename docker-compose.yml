@@ -9,7 +9,8 @@ services:
     networks:
       - pgpool
     volumes:
-      - ./logs:/var/log/pgpool
+      - ./logs/pgpool:/var/log/pgpool
+      - ./logs/apache2:/var/log/apache2
       - ./config/pgmgt.conf.php:/var/www/html/admin-tool/conf/pgmgt.conf.php
       - ./config/etc:/usr/local/etc
     env_file:
