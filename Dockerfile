@@ -10,14 +10,16 @@ WORKDIR /usr/local/src/pgpool-II-3.5.2
 RUN ./configure --with-openssl && make && make install && ldconfig
 
 WORKDIR /usr/local/src
-ADD .environment env_file
 RUN curl -L -o pgpoolAdmin-3.5.2.tar.gz http://www.pgpool.net/download.php?f=pgpoolAdmin-3.5.2.tar.gz
 RUN tar xzf pgpoolAdmin-3.5.2.tar.gz
 RUN mv pgpoolAdmin-3.5.2 /var/www/html/admin-tool
 RUN rm -rf /var/www/html/admin-tool/install
+RUN rm -rf /usr/local/src/*
 
 RUN mv /usr/local/etc /usr/local/etc.original
 RUN mkdir /var/log/pgpool
+RUN mkdir /var/run/pgpool
+ADD .environment /etc/env_file
 
 EXPOSE 80
 EXPOSE 9999
