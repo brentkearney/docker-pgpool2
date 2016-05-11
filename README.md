@@ -1,24 +1,14 @@
 # docker-pgpool2
 
-Work in progess. Uses Postgresql image since we already have it, and the latest versions of pgpool-ii & pgpoolAdmin.
+Builds a Docker container running pgpool-II and pgpoolAdmin, versions 3.5.2. Based off of the postgres:9.5.1 image.
+Configuration is persisted vi host-mounted files in ./config.
 
-Usage: 
-* Edit .environment to set usernames & passwords
-* Edit pool_hba.conf to configure pgpool-ii
-* docker-compose up
-
-
--- 
-
-This Dockerfile will install pgpool2 and pgpooladmin.
-
-Default users/passwords are docker/docker.
-
-Connect to pgpoolAdmin using your web browser pointed at the port mapped to 80.
-Connect your pg client to the port mapped to 9999.
-
-Some settings you may wish to change:
-
-* listen_addresses: to `*` so pgpool allows connections from anywhere
-* enable_pool_hba: on so you can use md5 auth (using PG_REPL_USER/PG_REPL_PASS)
+## Usage: 
+* Edit .environment to set usernames & passwords, and web server hostname.
+* Edit docker-compose.yml if you want port mappings other than 8000 -> 80, 9999 -> 9999.
+* Edit config/pgmgt.conf.php if you want a language other than English.
+* Run `docker-compose build` to build the image.
+* Run `docker-compose up -d` to run the container.
+* Visit http://yourhostname:8000 to login and configure pgpool-II. 
+* In the "pgpool.conf Setting" tab, set the socket file locations to /var/run/pgpool.
 
