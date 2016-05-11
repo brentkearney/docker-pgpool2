@@ -16,10 +16,9 @@ RUN tar xzf pgpoolAdmin-3.5.2.tar.gz
 RUN rm -rf /var/www/html
 RUN mv pgpoolAdmin-3.5.2 /var/www/html
 ADD .environment env_file
-
 RUN mkdir /var/log/pgpool2
-WORKDIR /var/www
-ADD ./pgmgt.conf.php /var/www/conf/
+
+ADD ./pgmgt.conf.php /var/www/html/conf/
 ADD ./pool_hba.conf /usr/local/etc/
 EXPOSE 80
 EXPOSE 9999
