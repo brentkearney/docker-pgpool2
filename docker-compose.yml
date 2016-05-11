@@ -9,8 +9,7 @@ services:
     networks:
       - pgpool
     volumes:
-      - ./config/etc:/usr/local/etc
-      - ./config/www:/var/www/conf
+      - ./config:/usr/local/etc
     env_file:
       - '.environment'
 

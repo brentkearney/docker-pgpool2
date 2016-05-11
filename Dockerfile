@@ -16,6 +16,8 @@ RUN tar xzf pgpoolAdmin-3.5.2.tar.gz
 RUN rm -rf /var/www/html
 RUN mv pgpoolAdmin-3.5.2 /var/www/html
 
+ADD .environment env_file
+
 WORKDIR /var/www
 ADD ./pgmgt.conf.php /var/www/conf/
 ADD ./pool_hba.conf /usr/local/etc/
@@ -23,6 +25,5 @@ ADD setup.sh /var/www/
 RUN sh ./setup.sh
 EXPOSE 80
 EXPOSE 9999
-ENTRYPOINT ["/usr/sbin/apache2"]
-CMD ["-D", "FOREGROUND"]
-
+COPY httpd-foreground /usr/local/bin
+CMD ["/usr/local/bin/httpd-foreground"]
