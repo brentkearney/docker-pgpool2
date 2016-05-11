@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  pgpool:
+  pgp:
     build: .
     ports:
       - '8000:80'
@@ -9,7 +9,7 @@ services:
     networks:
       - pgpool
     volumes:
-      - ./logs:/var/log/pgpool2
+      - ./logs:/var/log/pgpool
     env_file:
       - '.environment'
 
