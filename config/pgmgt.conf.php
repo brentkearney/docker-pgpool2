@@ -1,5 +1,5 @@
 <?php
-define('_PGPOOL2_LANG', 'en');
+define('_PGPOOL2_LANG', 'en'); // As of v. 3.5.2, Language can be one of: en, es, fr, ja, zh_cn 
 define('_PGPOOL2_VERSION', '3.5');
 define('_PGPOOL2_CONFIG_FILE', '/usr/local/etc/pgpool.conf');
 define('_PGPOOL2_PASSWORD_FILE', '/usr/local/etc/pcp.conf');
