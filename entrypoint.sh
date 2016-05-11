@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-export `cat /usr/local/src/env_file`
+export `cat /etc/env_file`
 
 [ -z "$PCP_USER" ] && echo "You need to set PCP_USER in .environment file}" && exit 1
 [ -z "$PCP_PASS" ] && echo "You need to set PCP_PASS in .environment file}" && exit 1
 [ -z "$PG_REPL_USER" ] && echo "You need to set PG_REPL_USER in .environment file}" && exit 1
 [ -z "$PG_REPL_PASS" ] && echo "You need to set PG_REPL_PASS in .environment file}" && exit 1
 [ -z "$APACHE_SERVER_NAME" ] && echo "You need to set APACHE_SERVER_NAME in .environment file}" && exit 1
-rm -rf /usr/local/src/*
 
 echo "ServerName ${APACHE_SERVER_NAME}" >> /etc/apache2/apache2.conf
 
@@ -39,8 +38,6 @@ fi
 
 chown www-data /usr/local/etc/*
 chmod 644 /usr/local/etc/*
-
-mkdir /var/run/pgpool
 chown www-data /var/run/pgpool
 
 source /etc/apache2/envvars
