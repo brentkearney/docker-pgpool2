@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  pgp:
+  pool:
     build: .
     ports:
       - '8000:80'

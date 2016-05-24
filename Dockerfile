@@ -13,12 +13,11 @@ WORKDIR /usr/local/src
 RUN curl -L -o pgpoolAdmin-3.5.2.tar.gz http://www.pgpool.net/download.php?f=pgpoolAdmin-3.5.2.tar.gz
 RUN tar xzf pgpoolAdmin-3.5.2.tar.gz
 RUN mv pgpoolAdmin-3.5.2 /var/www/html/admin-tool
+COPY index.html /var/www/html/
 RUN rm -rf /var/www/html/admin-tool/install
 RUN rm -rf /usr/local/src/*
-
 RUN mv /usr/local/etc /usr/local/etc.original
-RUN mkdir /var/log/pgpool
-RUN mkdir /var/run/pgpool
+RUN mkdir /var/log/pgpool && mkdir /var/run/pgpool
 ADD .environment /etc/env_file
 
 EXPOSE 80
