@@ -18,7 +18,6 @@ RUN rm -rf /var/www/html/admin-tool/install
 RUN rm -rf /usr/local/src/*
 RUN mv /usr/local/etc /usr/local/etc.original
 RUN mkdir /var/log/pgpool && mkdir /var/run/pgpool
-ADD .environment /etc/env_file
 
 EXPOSE 80
 EXPOSE 9999

@@ -14,7 +14,7 @@ services:
       - ./config/pgmgt.conf.php:/var/www/html/admin-tool/conf/pgmgt.conf.php
       - ./config/etc:/usr/local/etc
     env_file:
-      - '.environment'
+      - .environment
 
 networks:
   pgpool:
