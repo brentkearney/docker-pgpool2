@@ -7,14 +7,19 @@ services:
       - '8000:80'
       - '9999:9999'
     networks:
-      - pgpool
+      - postgres_default
     volumes:
       - ./logs/pgpool:/var/log/pgpool
       - ./logs/apache2:/var/log/apache2
       - ./config/pgmgt.conf.php:/var/www/html/admin-tool/conf/pgmgt.conf.php
       - ./config/etc:/usr/local/etc
+      - ./config/ssl:/etc/ssl:ro
+    external_links:
+      - postgres_db_1:db
     env_file:
       - .environment
 
 networks:
-  pgpool:
+  postgres_default:
+    external: true 
+

@@ -1,4 +1,4 @@
-FROM postgres:9.5.1
+FROM postgres:9.5.3
 
 RUN apt-get -qq update && apt-get install -y -qq curl apache2 libapache2-mod-php5 php5-pgsql build-essential libpq-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -18,6 +18,7 @@ RUN rm -rf /var/www/html/admin-tool/install
 RUN rm -rf /usr/local/src/*
 RUN mv /usr/local/etc /usr/local/etc.original
 RUN mkdir /var/log/pgpool && mkdir /var/run/pgpool
+WORKDIR /usr/local/etc
 
 EXPOSE 80
 EXPOSE 9999
